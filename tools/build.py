@@ -23,14 +23,14 @@ def zip_addon(addon_path, out_dir):
     
     # Create zip with addon files in correct structure
     with zipfile.ZipFile(out_path, 'w', zipfile.ZIP_DEFLATED) as zipf:
-        base_name = addon_path.name
         for folder, _, files in os.walk(addon_path):
-            rel_folder = pathlib.Path(folder).relative_to(addon_path.parent)
+            rel_path = pathlib.Path(folder).relative_to(addon_path)
+            zip_folder = pathlib.Path(addon_id) / rel_path
             for file in files:
-                full_path = pathlib.Path(folder) / file
-                # Ensure files go into addon_id directory in zip
-                arc_path = rel_folder / file
-                zipf.write(full_path, arc_path)
+                file_path = pathlib.Path(folder) / file
+                arc_path = zip_folder / file
+                print(f"Adding {file_path} as {arc_path}")
+                zipf.write(file_path, arc_path)
     
     return addon_id, version
 
