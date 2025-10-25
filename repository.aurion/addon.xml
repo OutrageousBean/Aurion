@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <addon id="repository.aurion" name="Aurion Repository" version="1.0.0" provider-name="OutrageousBean">
   <requires>
     <import addon="xbmc.addon" version="19.0.0"/>
