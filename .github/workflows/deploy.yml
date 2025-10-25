@@ -30,6 +30,16 @@ jobs:
       - name: Build Repository
         run: |
           python tools/build.py
+          # Create a deployment directory with only needed files
+          mkdir deploy
+          cp addons.xml deploy/
+          cp addons.xml.md5 deploy/
+          cp -r zips deploy/
+          
+      - name: Debug Build Output
+        run: |
+          echo "=== Repository Structure ==="
+          ls -R deploy/
           
       - name: Setup Pages
         uses: actions/configure-pages@v4
@@ -37,7 +47,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: '.'
+          path: './deploy'
           
       - name: Deploy to GitHub Pages
         id: deployment
