@@ -35,6 +35,21 @@ jobs:
           cp addons.xml deploy/
           cp addons.xml.md5 deploy/
           cp -r zips deploy/
+          cp index.html deploy/
+          # Create directory listings for zip folders
+          cd deploy/zips
+          for d in */; do
+            echo "<html><body><h1>Directory listing for ${d%/}</h1><ul>" > "${d%/}/index.html"
+            ls -1 "$d" | while read f; do
+              echo "<li><a href=\"$f\">$f</a></li>" >> "${d%/}/index.html"
+            done
+            echo "</ul></body></html>" >> "${d%/}/index.html"
+          done
+          echo "<html><body><h1>Repository Addons</h1><ul>" > index.html
+          ls -1 | grep -v index.html | while read d; do
+            echo "<li><a href=\"$d\">$d</a></li>" >> index.html
+          done
+          echo "</ul></body></html>" >> index.html
           
       - name: Debug Build Output
         run: |

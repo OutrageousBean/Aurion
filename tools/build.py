@@ -54,14 +54,15 @@ def generate_addons_xml():
             if xml_path.exists():
                 addons.append(xml_path.read_text())
     
-    # Write addons.xml
-    xml_content = "<addons>\n" + "\n".join(addons) + "\n</addons>"
+    # Write addons.xml with proper XML declaration
+    xml_content = '<?xml version="1.0" encoding="UTF-8"?>\n<addons>\n' + "\n".join(addons) + "\n</addons>"
     addons_xml = ROOT / "addons.xml"
     addons_xml.write_text(xml_content, encoding='utf-8')
     
     # Generate proper MD5
     md5_path = ROOT / "addons.xml.md5"
-    md5_path.write_text(generate_md5(addons_xml))
+    md5_hash = generate_md5(addons_xml)
+    md5_path.write_text(md5_hash, encoding='utf-8')
 
 def main():
     print("Building Aurion Repository...")
