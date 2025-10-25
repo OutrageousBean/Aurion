@@ -7,7 +7,8 @@ import hashlib
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 ADDONS = ROOT / "addons"
 REPO = ROOT / "repository.aurion"
-ZIPS = ROOT / "zips"
+DOCS = ROOT / "docs"
+ZIPS = DOCS / "zips"
 
 def get_addon_info(addon_path):
     xml = addon_path / "addon.xml"
@@ -56,11 +57,11 @@ def generate_addons_xml():
     
     # Write addons.xml with proper XML declaration
     xml_content = '<?xml version="1.0" encoding="UTF-8"?>\n<addons>\n' + "\n".join(addons) + "\n</addons>"
-    addons_xml = ROOT / "addons.xml"
+    addons_xml = DOCS / "addons.xml"
     addons_xml.write_text(xml_content, encoding='utf-8')
     
     # Generate proper MD5
-    md5_path = ROOT / "addons.xml.md5"
+    md5_path = DOCS / "addons.xml.md5"
     md5_hash = generate_md5(addons_xml)
     md5_path.write_text(md5_hash, encoding='utf-8')
 
