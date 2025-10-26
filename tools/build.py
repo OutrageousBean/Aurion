@@ -1,4 +1,5 @@
 import os
+import re
 import zipfile
 import pathlib
 import xml.etree.ElementTree as ET
@@ -47,8 +48,9 @@ def generate_addons_xml():
     # Add repository addon first
     if (REPO / "addon.xml").exists():
         content = (REPO / "addon.xml").read_text()
-        # Strip XML declaration if present
-        content = content.replace('<?xml version="1.0" encoding="UTF-8"?>', '').strip()
+        # Strip any XML declaration like <?xml ...?> anywhere in the file
+        content = re.sub(r"\s*<\?xml[^>]*\?>", "", content, flags=re.IGNORECASE)
+        content = content.strip()
         addons.append(content)
     
     # Add all other addons
@@ -57,8 +59,9 @@ def generate_addons_xml():
             xml_path = addon / "addon.xml"
             if xml_path.exists():
                 content = xml_path.read_text()
-                # Strip XML declaration if present
-                content = content.replace('<?xml version="1.0" encoding="UTF-8"?>', '').strip()
+                # Strip any XML declaration like <?xml ...?> anywhere in the file
+                content = re.sub(r"\s*<\?xml[^>]*\?>", "", content, flags=re.IGNORECASE)
+                content = content.strip()
                 addons.append(content)
     
     # Write addons.xml with proper XML declaration
@@ -85,8 +88,12 @@ def main():
     print("Building addons...")
     for addon in ADDONS.iterdir():
         if addon.is_dir():
-            addon_id, version = zip_addon(addon, ZIPS)
-            print(f"Built {addon_id} version {version}")
+            try:
+                addon_id, version = zip_addon(addon, ZIPS)
+                print(f"Built {addon_id} version {version}")
+            except Exception as e:
+                # Log and continue so addons.xml/MD5 still regenerate
+                print(f"Warning: failed to build {addon.name}: {e}")
     
     # Generate addons.xml and MD5
     print("Generating addons.xml and MD5...")
