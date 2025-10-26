@@ -46,14 +46,20 @@ def generate_addons_xml():
     addons = []
     # Add repository addon first
     if (REPO / "addon.xml").exists():
-        addons.append((REPO / "addon.xml").read_text())
+        content = (REPO / "addon.xml").read_text()
+        # Strip XML declaration if present
+        content = content.replace('<?xml version="1.0" encoding="UTF-8"?>', '').strip()
+        addons.append(content)
     
     # Add all other addons
     for addon in ADDONS.iterdir():
         if addon.is_dir():
             xml_path = addon / "addon.xml"
             if xml_path.exists():
-                addons.append(xml_path.read_text())
+                content = xml_path.read_text()
+                # Strip XML declaration if present
+                content = content.replace('<?xml version="1.0" encoding="UTF-8"?>', '').strip()
+                addons.append(content)
     
     # Write addons.xml with proper XML declaration
     xml_content = '<?xml version="1.0" encoding="UTF-8"?>\n<addons>\n' + "\n".join(addons) + "\n</addons>"
