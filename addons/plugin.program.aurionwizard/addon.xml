@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<addon id="plugin.program.aurionwizard" name="Aurion Wizard" version="0.1.0" provider-name="OutrageousBean">
+  <requires>
+    <import addon="xbmc.python" version="3.0.0"/>
+  </requires>
+  <extension point="xbmc.python.pluginsource" library="default.py">
+    <provides>executable</provides>
+  </extension>
+  <extension point="xbmc.addon.metadata">
+    <summary lang="en_GB">Aurion Setup and Maintenance Wizard</summary>
+    <description lang="en_GB">Easily install Aurion add-ons, apply skin defaults, and perform maintenance tasks. This wizard helps you set up the Aurion skin and video add-on with one click.</description>
+    <platform>all</platform>
+    <license>MIT</license>
+    <assets>
+      <icon>icon.png</icon>
+      <fanart>fanart.jpg</fanart>
+    </assets>
+  </extension>
+</addon>

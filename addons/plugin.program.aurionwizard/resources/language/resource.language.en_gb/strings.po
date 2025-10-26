@@ -1,0 +1,82 @@
+# Kodi Media Center language file
+# Addon Name: Aurion Wizard
+# Addon id: plugin.program.aurionwizard
+# Addon Provider: OutrageousBean
+
+msgid ""
+msgstr ""
+"Project-Id-Version: plugin.program.aurionwizard\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-10-27 00:00+0000\n"
+"PO-Revision-Date: 2025-10-27 00:00+0000\n"
+"Last-Translator: OutrageousBean\n"
+"Language-Team: English\n"
+"Language: en_GB\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgctxt "#32000"
+msgid "Install Aurion Skin"
+msgstr ""
+
+msgctxt "#32001"
+msgid "Install Aurion Video Add-on"
+msgstr ""
+
+msgctxt "#32002"
+msgid "Apply Aurion Skin Defaults"
+msgstr ""
+
+msgctxt "#32003"
+msgid "Open Aurion Skin Settings"
+msgstr ""
+
+msgctxt "#32004"
+msgid "Clear Packages Cache"
+msgstr ""
+
+msgctxt "#32005"
+msgid "About"
+msgstr ""
+
+msgctxt "#32010"
+msgid "Installing %s..."
+msgstr ""
+
+msgctxt "#32011"
+msgid "Installation started"
+msgstr ""
+
+msgctxt "#32012"
+msgid "Packages cache cleared successfully"
+msgstr ""
+
+msgctxt "#32013"
+msgid "Skin defaults applied. Reloading skin..."
+msgstr ""
+
+msgctxt "#32020"
+msgid "Skin Not Installed"
+msgstr ""
+
+msgctxt "#32021"
+msgid "The Aurion skin is not installed yet. Would you like to install it first?"
+msgstr ""
+
+msgctxt "#32022"
+msgid "Clear Packages Cache"
+msgstr ""
+
+msgctxt "#32023"
+msgid "This will remove downloaded add-on packages to free up space. Do you want to continue?"
+msgstr ""
+
+msgctxt "#32024"
+msgid "Apply Aurion Skin Defaults"
+msgstr ""
+
+msgctxt "#32025"
+msgid "This will apply recommended default settings for the Aurion skin. Do you want to continue?"
+msgstr ""
