@@ -1,7 +1,7 @@
 <?xml version="1.0.0" encoding="UTF-8"?>
 <addon id="skin.aurion" version="21.2.1+omega.27" name="Aurion Skin v1" provider-name="OutrageousBean">
 	<requires>
-		<import addon="xbmc.python" version="3.0.1"/>
+		<import addon="xbmc.python" version="3.0.0"/>
 		<import addon="xbmc.gui" version="5.17.0"/>
 	</requires>
 	<extension point="xbmc.gui.skin" debugging="false">
