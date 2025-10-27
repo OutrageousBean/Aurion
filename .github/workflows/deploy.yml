@@ -1,9 +1,8 @@
-name: Deploy Repository
+name: Build & Publish Aurion
 
 on:
   push:
-    branches:
-      - main
+    branches: [ "main" ]
   workflow_dispatch:
 
 permissions:
@@ -12,58 +11,40 @@ permissions:
   id-token: write
 
 jobs:
-  build-and-deploy:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+
+      - name: Build repository zips and indexes (to docs/)
+        run: |
+          python3 tools/build.py
+          echo "Built to docs/ with zips under docs/zips and addons.xml at docs/"
+
+      - name: List publishables
+        run: |
+          ls -lah docs/
+          find docs -maxdepth 2 -type f -name '*.zip' -printf '%p %k KB\n' || true
+
+      # If your Pages "Source" is set to GitHub Actions, this publishes docs/ as the site.
+      - name: Upload Pages Artifact (docs/)
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./docs
+
+  deploy:
+    needs: build
     runs-on: ubuntu-latest
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-      
-      - name: Set up Python
-        uses: actions/setup-python@v4
-        with:
-          python-version: '3.x'
-          
-      - name: Build Repository
-        run: |
-          python tools/build.py
-          # Create a deployment directory with only needed files
-          mkdir deploy
-          cp addons.xml deploy/
-          cp addons.xml.md5 deploy/
-          cp -r zips deploy/
-          cp index.html deploy/
-          # Create directory listings for zip folders
-          cd deploy/zips
-          for d in */; do
-            echo "<html><body><h1>Directory listing for ${d%/}</h1><ul>" > "${d%/}/index.html"
-            ls -1 "$d" | while read f; do
-              echo "<li><a href=\"$f\">$f</a></li>" >> "${d%/}/index.html"
-            done
-            echo "</ul></body></html>" >> "${d%/}/index.html"
-          done
-          echo "<html><body><h1>Repository Addons</h1><ul>" > index.html
-          ls -1 | grep -v index.html | while read d; do
-            echo "<li><a href=\"$d\">$d</a></li>" >> index.html
-          done
-          echo "</ul></body></html>" >> index.html
-          
-      - name: Debug Build Output
-        run: |
-          echo "=== Repository Structure ==="
-          ls -R deploy/
-          
-      - name: Setup Pages
-        uses: actions/configure-pages@v4
-          
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: './deploy'
-          
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4

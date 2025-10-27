@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<colors>
+	<!-- Aurion Premium Color Scheme -->
+	<!-- Deep slate and gold accent for cinematic experience -->
+	
+	<!-- Primary Colors -->
+	<color name="main_bg_color">FF0F1116</color>                    <!-- Deep slate background -->
+	<color name="main_fg_color">FFECECEC</color>                    <!-- Light text -->
+	<color name="highlight_color">FFE6B200</color>                  <!-- Gold accent -->
+	<color name="accent_color">FFE6B200</color>                     <!-- Gold accent -->
+	
+	<!-- Text Colors -->
+	<color name="text_color">FFECECEC</color>                       <!-- Main text -->
+	<color name="unfocused_color">FF9098A0</color>                  <!-- Muted text -->
+	<color name="disabled_color">FF606060</color>                   <!-- Disabled items -->
+	
+	<!-- UI Element Colors -->
+	<color name="dialog_bg_color">FF1A1C24</color>                  <!-- Dialog background -->
+	<color name="panel_bg_color">FF13151A</color>                   <!-- Panel background -->
+	<color name="button_focus">FFE6B200</color>                     <!-- Focused button -->
+	<color name="button_nofocus">FF2A2C34</color>                   <!-- Unfocused button -->
+	
+	<!-- Info Colors -->
+	<color name="watched_color">FFE6B200</color>                    <!-- Watched indicator -->
+	<color name="unwatched_color">FF4A9EFF</color>                  <!-- Unwatched indicator -->
+	<color name="inprogress_color">FFFF8C00</color>                 <!-- In progress -->
+	
+	<!-- Overlay Colors -->
+	<color name="overlay_bg">DD0F1116</color>                       <!-- Overlay background -->
+	<color name="black70">B3000000</color>                          <!-- 70% black -->
+	<color name="black50">80000000</color>                          <!-- 50% black -->
+	
+	<!-- Special Colors -->
+	<color name="selected_color">80E6B200</color>                   <!-- Selected item (50% gold) -->
+	<color name="diffuse_color">FFFFFFFF</color>                    <!-- Default diffuse -->
+</colors>
