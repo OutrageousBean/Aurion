@@ -13,9 +13,14 @@
     </dir>
   </extension>
   <extension point="xbmc.addon.metadata">
-    <summary>Aurion Kodi Repository</summary>
-    <description>Custom Kodi builds and skins for Aurion</description>
+    <summary lang="en_GB">Aurion Kodi Repository</summary>
+    <description lang="en_GB">Custom Kodi builds and skins for Aurion</description>
     <platform>all</platform>
+    <license>MIT</license>
+    <assets>
+      <icon>icon.png</icon>
+      <fanart>fanart.jpg</fanart>
+    </assets>
   </extension>
 </addon>
 <addon id="plugin.program.aurionwizard" name="Aurion Wizard" version="0.1.0" provider-name="OutrageousBean">
@@ -44,9 +49,14 @@
   </requires>
   <extension point="xbmc.python.pluginsource" library="main.py" />
   <extension point="xbmc.addon.metadata">
-    <summary>Premium cinematic streaming via Real-Debrid and crawlers</summary>
-    <description>Aurion custom multi-source addon</description>
+    <summary lang="en_GB">Premium cinematic streaming via Real-Debrid and crawlers</summary>
+    <description lang="en_GB">Aurion custom multi-source addon</description>
     <platform>all</platform>
+    <license>MIT</license>
+    <assets>
+      <icon>icon.png</icon>
+      <fanart>fanart.jpg</fanart>
+    </assets>
   </extension>
 </addon>
 <addon id="skin.aurion" version="21.2.1+omega.27" name="Aurion Skin v1" provider-name="OutrageousBean">
