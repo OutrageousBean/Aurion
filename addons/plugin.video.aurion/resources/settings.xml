@@ -1,0 +1,10 @@
+<settings>
+  <category label="Accounts">
+    <setting id="rd_enabled" type="bool" label="Enable Real-Debrid" default="false"/>
+    <setting id="rd_token" type="text" visible="false" default=""/>
+  </category>
+  <category label="Providers">
+    <setting id="use_openscrapers" type="bool" label="Use OpenScrapers if available" default="true"/>
+    <setting id="timeout" type="number" label="Provider timeout (sec)" default="15"/>
+  </category>
+</settings>

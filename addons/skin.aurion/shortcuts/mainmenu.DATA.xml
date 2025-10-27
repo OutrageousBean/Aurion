@@ -17,6 +17,11 @@
         <visible>Library.HasContent(movies) + !Skin.HasSetting(hide_moviescategory)</visible>
     </shortcut>
     <shortcut>
+        <label>Aurion Movies</label>
+        <icon>special://skin/extras/icons/movies.png</icon>
+        <action>ActivateWindow(Videos,plugin://plugin.video.aurion/?action=movies,return)</action>
+    </shortcut>
+    <shortcut>
         <label>342</label>
         <label2>Common Shortcut</label2>
         <defaultID>movies</defaultID>
@@ -39,6 +44,11 @@
         <icon>icons/sidemenu/tv.png</icon>
         <action>ActivateWindow(Videos,videodb://tvshows/titles/,return)</action>
         <visible>Library.HasContent(tvshows) + !Skin.HasSetting(hide_tvshowscategory)</visible>
+    </shortcut>
+    <shortcut>
+        <label>Aurion TV</label>
+        <icon>special://skin/extras/icons/tv.png</icon>
+        <action>ActivateWindow(Videos,plugin://plugin.video.aurion/?action=tvshows,return)</action>
     </shortcut>
     <shortcut>
         <label>20343</label>
@@ -146,6 +156,11 @@
         <defaultID>video</defaultID>
         <icon>icons/sidemenu/videos.png</icon>
         <action>ActivateWindow(Videos,root)</action>
+    </shortcut>
+    <shortcut>
+        <label>Search</label>
+        <icon>special://skin/extras/icons/search.png</icon>
+        <action>ActivateWindow(Videos,plugin://plugin.video.aurion/?action=search,return)</action>
     </shortcut>
         <shortcut>
         <label>10134</label>
