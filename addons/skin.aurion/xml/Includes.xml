@@ -79,6 +79,41 @@
 	<expression name="PvrHasNumberedDevices">String.Contains(PVR.ActStreamDevice,#0) | String.Contains(PVR.ActStreamDevice,#1) | String.Contains(PVR.ActStreamDevice,#2) | String.Contains(PVR.ActStreamDevice,#3) | String.Contains(PVR.ActStreamDevice,#4) | String.Contains(PVR.ActStreamDevice,#5) | String.Contains(PVR.ActStreamDevice,#6) | String.Contains(PVR.ActStreamDevice,#7) | String.Contains(PVR.ActStreamDevice,#8)</expression>
 	<!-- Expression if show thumbs on unwatched episodes is set -->
 	<expression name="show_unwatchedthumbs">String.Contains(Window(home).Property(videolibrary.showunwatchedplots),2)</expression>
+	<include name="AurionHeaderBar">
+		<control type="group">
+			<visible>Window.IsActive(home)</visible>
+			<left>60</left>
+			<right>60</right>
+			<top>24</top>
+			<height>120</height>
+			<!-- Logo -->
+			<control type="image">
+				<width>280</width>
+				<height>96</height>
+				<texture>media/icon.png</texture>
+				<aspectratio retain="true">keep</aspectratio>
+			</control>
+			<!-- Quick Actions (Search / Updates) -->
+			<control type="group">
+				<right>0</right>
+				<top>16</top>
+				<control type="button">
+					<width>200</width>
+					<height>64</height>
+					<label>$LOCALIZE[137]</label>
+					<onclick>ActivateWindow(Videos,plugin://plugin.video.aurion/?action=search,return)</onclick>
+				</control>
+				<control type="button">
+					<left>220</left>
+					<width>260</width>
+					<height>64</height>
+					<label>Check for Updates</label>
+					<onclick>UpdateAddonRepos</onclick>
+					<onclick>CheckForUpdates</onclick>
+				</control>
+			</control>
+		</control>
+	</include>
 	<include name="CommonScrollbars">
 		<control type="group">
 			<animation effect="fade" start="100" end="0" time="150">WindowClose</animation>

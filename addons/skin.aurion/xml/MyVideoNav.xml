@@ -2,7 +2,7 @@
 <window>
 	<defaultcontrol always="true">50</defaultcontrol>
 	<backgroundcolor>background</backgroundcolor>
-	<views>50,51,52,53,54,55,500,501,502,503,504,505,506,507,508,509,510</views>
+	<views>50,51,52,53,54,55,500,501,502,503,504,505,506,507,508,509,510,905</views>
 	<menucontrol>9000</menucontrol>
 	<controls>
 		<include>DefaultBackground</include>
@@ -27,6 +27,51 @@
 			<include>View_508_DoubleLists</include>
 			<include>View_509_TripleLists</include>
 			<include>View_510_Flix</include>
+			<control type="panel" id="905">
+				<left>60</left>
+				<right>60</right>
+				<top>80</top>
+				<bottom>80</bottom>
+				<onleft condition="!Skin.HasSetting(KioskMode)">9000</onleft>
+				<onright>531</onright>
+				<onup>905</onup>
+				<ondown>905</ondown>
+				<viewtype label="Aurion Grid">thumbnail</viewtype>
+				<preloaditems>2</preloaditems>
+				<pagecontrol>531</pagecontrol>
+				<scrolltime tween="cubic" easing="out">220</scrolltime>
+				<visible>Control.IsVisible(905)</visible>
+				<itemlayout width="320" height="510">
+					<control type="image">
+						<width>320</width>
+						<height>480</height>
+						<texture fallback="DefaultVideo.png">$INFO[ListItem.Art(poster)]</texture>
+						<aspectratio>scale</aspectratio>
+					</control>
+					<control type="label">
+						<top>488</top>
+						<label>$INFO[ListItem.Title]</label>
+						<font>font12</font>
+						<textcolor>ColText</textcolor>
+					</control>
+				</itemlayout>
+				<focusedlayout width="320" height="510">
+					<control type="image">
+						<width>320</width>
+						<height>480</height>
+						<texture fallback="DefaultVideo.png">$INFO[ListItem.Art(poster)]</texture>
+						<aspectratio>scale</aspectratio>
+						<animation effect="zoom" start="100" end="108" time="160" />
+						<animation effect="fade" start="85" end="100" time="160" />
+					</control>
+					<control type="label">
+						<top>488</top>
+						<label>$INFO[ListItem.Title]</label>
+						<font>font12_title</font>
+						<textcolor>ColAccent</textcolor>
+					</control>
+				</focusedlayout>
+			</control>
 			<control type="group">
 				<depth>DepthContentPanel</depth>
 				<include>OpenClose_Left</include>

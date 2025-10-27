@@ -54,12 +54,15 @@ def route_tv():
     xbmcplugin.endOfDirectory(HANDLE)
 
 
-def route_search():
+def route_search(initial=None, media_type=None):
+    if initial:
+        show_results(query=initial, media_type=media_type)
+        return
     keyboard = xbmcgui.Dialog().input("Search", type=xbmcgui.INPUT_ALPHANUM)
     if not keyboard:
         xbmcplugin.endOfDirectory(HANDLE)
         return
-    show_results(query=keyboard)
+    show_results(query=keyboard, media_type=media_type)
 
 
 def show_results(query=None, media_type=None, action=None):
@@ -138,7 +141,7 @@ def router():
     elif action == "tvshows":
         route_tv()
     elif action == "search":
-        route_search()
+        route_search(query.get("query"), query.get("type"))
     elif action in ("trending", "popular"):
         show_results(action=action, media_type=query.get("type"))
     elif action == "accounts":

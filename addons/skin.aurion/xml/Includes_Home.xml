@@ -2,6 +2,62 @@
 <includes>
 	<include file="WidgetPvrChannels.xml"/>
 	<include file="WidgetPvrOffers.xml"/>
+	<include name="AurionSpotlight">
+		<param name="label" default="Spotlight"/>
+		<param name="path" default="plugin://plugin.video.aurion/?action=trending&amp;type=movie"/>
+		<param name="panel_id" default="30000"/>
+		<control type="group">
+			<visible>System.HasAddon(plugin.video.aurion)</visible>
+			<top>140</top>
+			<left>60</left>
+			<right>60</right>
+			<height>420</height>
+			<control type="label">
+				<font>font36_title</font>
+				<label>$PARAM[label]</label>
+				<textcolor>ColAccent</textcolor>
+			</control>
+			<control type="panel" id="$PARAM[panel_id]">
+				<top>60</top>
+				<height>360</height>
+				<onleft>$PARAM[panel_id]</onleft>
+				<onright>$PARAM[panel_id]</onright>
+				<content>$PARAM[path]</content>
+				<itemlayout width="520" height="340">
+					<control type="image">
+						<width>520</width>
+						<height>292</height>
+						<texture>$INFO[ListItem.Art(poster)]</texture>
+						<bordertexture colordiffuse="33FFFFFF">colors/white50.png</bordertexture>
+						<aspectratio>scale</aspectratio>
+					</control>
+					<control type="label">
+						<top>300</top>
+						<label>$INFO[ListItem.Title]</label>
+						<font>font16</font>
+						<textcolor>ColText</textcolor>
+						<shadowcolor>66000000</shadowcolor>
+					</control>
+				</itemlayout>
+				<focusedlayout width="520" height="340">
+					<control type="image">
+						<width>520</width>
+						<height>292</height>
+						<texture>$INFO[ListItem.Art(poster)]</texture>
+						<aspectratio>scale</aspectratio>
+						<animation effect="zoom" start="100" end="106" time="180" tween="cubic" easing="out" />
+						<animation effect="fade" start="90" end="100" time="180" />
+					</control>
+					<control type="label">
+						<top>300</top>
+						<label>$INFO[ListItem.Title]</label>
+						<font>font16_title</font>
+						<textcolor>ColAccent</textcolor>
+					</control>
+				</focusedlayout>
+			</control>
+		</control>
+	</include>
 	<include name="GenresLayout">
 		<param name="focused">false</param>
 		<definition>

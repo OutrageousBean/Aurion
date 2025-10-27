@@ -72,8 +72,8 @@ def write_skin_defaults():
     
     if not xbmcvfs.exists(settings_path):
         data = """<settings>
-  <setting id="color.theme" value="aurion"/>
-  <setting id="theme.variant" value="curial"/>
+  <setting id="color.theme" value="aurion" />
+  <setting id="theme.variant" value="curial" />
 </settings>"""
         f = xbmcvfs.File(settings_path, 'w')
         f.write(data)

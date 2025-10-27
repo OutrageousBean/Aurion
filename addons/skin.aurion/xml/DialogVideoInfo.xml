@@ -25,8 +25,8 @@
 				<control type="image">
 					<top>-20</top>
 					<left>-20</left>
-					<width>280</width>
-					<height>400</height>
+					<width>360</width>
+					<height>520</height>
 					<texture>colors/black.png</texture>
 					<bordertexture border="21">overlays/shadow.png</bordertexture>
 					<bordersize>20</bordersize>
@@ -35,8 +35,8 @@
 					<depth>DepthContentPopout</depth>
 					<left>0</left>
 					<top>0</top>
-					<width>240</width>
-					<height>360</height>
+					<width>320</width>
+					<height>480</height>
 					<aspectratio>scale</aspectratio>
 					<texture fallback="DefaultVideo.png">$VAR[InfoDialogPosterVar]</texture>
 				</control>
@@ -63,7 +63,7 @@
 			<control type="group">
 				<include>OpenClose_Right</include>
 				<visible>![Player.HasVideo + String.IsEqual(Window(Home).Property(TrailerPlaying),439)]</visible>
-				<left>330</left>
+				<left>420</left>
 				<right>30</right>
 				<top>50</top>
 				<control type="image">
@@ -207,6 +207,22 @@
 						<param name="onclick_1" value="Dialog.Close(MovieInformation)" />
 						<param name="onclick_2" value="SendClick(9)" />
 						<param name="label" value="$LOCALIZE[13362]" />
+					</include>
+					<include content="InfoDialogSmallButton" condition="System.HasAddon(plugin.video.aurion)">
+						<param name="id" value="7610" />
+						<param name="icon" value="icons/infodialogs/play.png" />
+						<param name="label" value="Play via Aurion" />
+						<param name="onclick_1" value="Dialog.Close(MovieInformation)" />
+						<param name="onclick_2" value="ActivateWindow(Videos,plugin://plugin.video.aurion/?action=play&amp;id=$INFO[ListItem.DBID]&amp;type=$INFO[ListItem.DBType]&amp;query=$ESCINFO[ListItem.Title],return)" />
+						<param name="visible" value="[String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,season) | String.IsEqual(ListItem.DBType,episode)]" />
+					</include>
+					<include content="InfoDialogSmallButton" condition="System.HasAddon(plugin.video.aurion)">
+						<param name="id" value="7611" />
+						<param name="icon" value="extras/icons/search.png" />
+						<param name="label" value="Find Sources" />
+						<param name="onclick_1" value="Dialog.Close(MovieInformation)" />
+						<param name="onclick_2" value="ActivateWindow(Videos,plugin://plugin.video.aurion/?action=search&amp;query=$ESCINFO[ListItem.Title],return)" />
+						<param name="visible" value="[String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,season) | String.IsEqual(ListItem.DBType,episode)]" />
 					</include>
 					<include content="InfoDialogSmallButton" condition="!String.IsEmpty(ListItem.Trailer) + ![String.StartsWith(Container.FolderPath,plugin://) + String.Contains(Container.FolderPath,trailer)]">
 						<param name="id" value="439" />

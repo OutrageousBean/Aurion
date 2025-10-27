@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<shortcuts>
+    <shortcut>
+        <label>Aurion Movies</label>
+        <icon>extras/icons/movies.png</icon>
+        <action>ActivateWindow(Videos,plugin://plugin.video.aurion/?action=movies,return)</action>
+    </shortcut>
+    <shortcut>
+        <label>Aurion TV</label>
+        <icon>extras/icons/tv.png</icon>
+        <action>ActivateWindow(Videos,plugin://plugin.video.aurion/?action=tvshows,return)</action>
+    </shortcut>
+    <shortcut>
+        <label>Search</label>
+        <icon>extras/icons/search.png</icon>
+        <action>ActivateWindow(Videos,plugin://plugin.video.aurion/?action=search,return)</action>
+    </shortcut>
+</shortcuts>
