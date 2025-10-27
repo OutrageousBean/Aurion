@@ -12,8 +12,13 @@
     </dir>
   </extension>
   <extension point="xbmc.addon.metadata">
-    <summary>Aurion Kodi Repository</summary>
-    <description>Custom Kodi builds and skins for Aurion</description>
+    <summary lang="en_GB">Aurion Kodi Repository</summary>
+    <description lang="en_GB">Custom Kodi builds and skins for Aurion</description>
     <platform>all</platform>
+    <license>MIT</license>
+    <assets>
+      <icon>icon.png</icon>
+      <fanart>fanart.jpg</fanart>
+    </assets>
   </extension>
 </addon>

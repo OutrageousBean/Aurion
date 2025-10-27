@@ -6,8 +6,13 @@
   </requires>
   <extension point="xbmc.python.pluginsource" library="main.py" />
   <extension point="xbmc.addon.metadata">
-    <summary>Premium cinematic streaming via Real-Debrid and crawlers</summary>
-    <description>Aurion custom multi-source addon</description>
+    <summary lang="en_GB">Premium cinematic streaming via Real-Debrid and crawlers</summary>
+    <description lang="en_GB">Aurion custom multi-source addon</description>
     <platform>all</platform>
+    <license>MIT</license>
+    <assets>
+      <icon>icon.png</icon>
+      <fanart>fanart.jpg</fanart>
+    </assets>
   </extension>
 </addon>

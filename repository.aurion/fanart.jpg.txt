@@ -1,0 +1,3 @@
+PLACEHOLDER: This file represents fanart.jpg which should be a 1280x720 or 1920x1080 JPG image.
+The actual fanart.jpg file needs to be created as a proper JPG image file.
+For now, this placeholder allows the build to proceed.
