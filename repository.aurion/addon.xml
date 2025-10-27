@@ -4,9 +4,12 @@
     <import addon="xbmc.addon" version="19.0.0"/>
   </requires>
   <extension point="xbmc.addon.repository" name="Aurion Repository">
-    <info compressed="false">https://outrageousbean.github.io/Aurion/addons.xml</info>
-    <checksum>https://outrageousbean.github.io/Aurion/addons.xml.md5</checksum>
-    <datadir>https://outrageousbean.github.io/Aurion/zips/</datadir>
+    <dir>
+      <info compressed="false">https://outrageousbean.github.io/Aurion/addons.xml</info>
+      <checksum>https://outrageousbean.github.io/Aurion/addons.xml.md5</checksum>
+      <datadir zip="true">https://outrageousbean.github.io/Aurion/zips/</datadir>
+      <hashes>false</hashes>
+    </dir>
   </extension>
   <extension point="xbmc.addon.metadata">
     <summary>Aurion Kodi Repository</summary>
