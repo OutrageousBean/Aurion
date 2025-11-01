@@ -90,7 +90,7 @@
 			<control type="image">
 				<width>280</width>
 				<height>96</height>
-				<texture>media/icon.png</texture>
+				<texture>special://skin/media/icon.png</texture>
 				<aspectratio retain="true">keep</aspectratio>
 			</control>
 			<!-- Quick Actions (Search / Updates) -->
