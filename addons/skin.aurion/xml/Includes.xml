@@ -88,14 +88,17 @@
 			<height>120</height>
 			<!-- Logo -->
 			<control type="image">
-				<width>280</width>
-				<height>96</height>
+				<left>0</left>
+				<top>16</top>
+				<width>256</width>
+				<height>64</height>
 				<texture>special://skin/media/icon.png</texture>
 				<aspectratio retain="true">keep</aspectratio>
 			</control>
 			<!-- Quick Actions (Search / Updates) -->
 			<control type="group">
-				<right>0</right>
+				<!-- place actions to the right of the logo -->
+				<left>320</left>
 				<top>16</top>
 				<control type="button">
 					<width>200</width>
@@ -104,7 +107,7 @@
 					<onclick>ActivateWindow(Videos,plugin://plugin.video.aurion/?action=search,return)</onclick>
 				</control>
 				<control type="button">
-					<left>220</left>
+					<left>240</left>
 					<width>260</width>
 					<height>64</height>
 					<label>Check for Updates</label>
