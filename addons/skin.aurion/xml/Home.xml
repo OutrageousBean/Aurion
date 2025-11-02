@@ -54,6 +54,16 @@
 			<include>OpenClose_Right</include>
 			<visible>[$EXP[ChristmasTheme] | $EXP[HalloweenTheme] | $EXP[EasterTheme] | $EXP[ValentineTheme] | $EXP[PreEasterTheme]] + !$EXP[infodialog_active]</visible>
 		</control>
+		<!-- Aurion Spotlight Rows - placed outside group 2000 for always-on visibility -->
+		<include content="AurionSpotlight">
+			<param name="label" value="Spotlight Movies"/>
+			<param name="path" value="plugin://plugin.video.aurion/?action=trending&amp;type=movie"/>
+		</include>
+		<include content="AurionSpotlight">
+			<param name="label" value="Trending Series"/>
+			<param name="path" value="plugin://plugin.video.aurion/?action=trending&amp;type=tv"/>
+			<param name="panel_id" value="30001"/>
+		</include>
 		<control type="group">
 			<animation effect="fade" start="100" end="0" time="200" tween="sine" condition="$EXP[infodialog_active]">Conditional</animation>
 			<control type="group" id="2000">
@@ -74,15 +84,6 @@
 				<include>skinshortcuts-template-PersonalWidgetPanel</include>
 				<include>skinshortcuts-template-PersonalWidgetVariable</include>
 				<include>AurionHeaderBar</include>
-				<include content="AurionSpotlight">
-					<param name="label" value="Spotlight Movies"/>
-					<param name="path" value="plugin://plugin.video.aurion/?action=trending&amp;type=movie"/>
-				</include>
-				<include content="AurionSpotlight">
-					<param name="label" value="Trending Series"/>
-					<param name="path" value="plugin://plugin.video.aurion/?action=trending&amp;type=tv"/>
-					<param name="panel_id" value="30001"/>
-				</include>
 				<control type="group" id="5000">
 					<animation effect="slide" end="502,0" time="300" tween="sine" easing="inout" condition="[Control.HasFocus(9000) | ControlGroup(700).HasFocus] + Skin.HasSetting(HideMainMenuWithWidgets) + !Skin.HasSetting(MinimizeMainMenu)">Conditional</animation>
 					<animation effect="slide" end="135,0" time="300" tween="sine" easing="inout" condition="[Control.HasFocus(9000) | ControlGroup(700).HasFocus] + Skin.HasSetting(HideMainMenuWithWidgets) + Skin.HasSetting(MinimizeMainMenu)">Conditional</animation>
