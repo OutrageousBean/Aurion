@@ -1,0 +1,448 @@
+{
+  "project": "Aurion Kodi Addon",
+  "current_status": "BLOCKED - Unable to build menu error persists",
+  "last_working_version": "Unknown - issue may have existed from start",
+  "current_version": {
+    "skin": "21.2.1+omega.38",
+    "plugin": "1.0.3",
+    "repository": "1.0.1"
+  },
+  
+  "timeline_of_changes": [
+    {
+      "version": "omega.31-33",
+      "changes": "Fixed header logo positioning",
+      "details": [
+        "Resized logo to 256x64",
+        "Positioned at left=0, top=16",
+        "Moved action buttons to left=320",
+        "Fixed texture path to special://skin/media/icon.png"
+      ],
+      "outcome": "SUCCESS - Logo displays correctly",
+      "files_modified": [
+        "addons/skin.aurion/xml/Includes.xml"
+      ]
+    },
+    {
+      "version": "omega.34",
+      "changes": "Attempted to add Spotlight feature",
+      "details": [
+        "AurionSpotlight include already existed in Includes_Home.xml",
+        "Added 2 Spotlight rows to Home.xml (Movies and TV Series)",
+        "Plugin updated to return fallback art (DefaultVideo.png)",
+        "Spotlights placed INSIDE group 2000"
+      ],
+      "outcome": "FAILED - Spotlights invisible",
+      "files_modified": [
+        "addons/skin.aurion/xml/Home.xml",
+        "addons/plugin.video.aurion/main.py"
+      ]
+    },
+    {
+      "version": "omega.35-36",
+      "changes": "Debug invisible Spotlights",
+      "details": [
+        "Removed System.HasAddon() visibility condition",
+        "Changed top position from 140 to 600",
+        "Moved Spotlights OUTSIDE group 2000 (omega.36)"
+      ],
+      "outcome": "FAILED - Still invisible, user didn't see version update",
+      "files_modified": [
+        "addons/skin.aurion/xml/Includes_Home.xml",
+        "addons/skin.aurion/xml/Home.xml"
+      ]
+    },
+    {
+      "version": "repo 1.0.1",
+      "changes": "Force Kodi cache refresh",
+      "details": [
+        "Bumped repository version from 1.0.0 to 1.0.1"
+      ],
+      "outcome": "PARTIAL - User still saw version 35 initially",
+      "files_modified": [
+        "repository.aurion/addon.xml"
+      ]
+    },
+    {
+      "version": "skin dependency fix",
+      "changes": "Updated xbmc.gui dependency",
+      "details": [
+        "Changed xbmc.gui requirement from 5.16.0 to 5.17.0 for Kodi Omega",
+        "User reported 'Error from dependency gui'"
+      ],
+      "outcome": "SUCCESS - GUI dependency error resolved",
+      "files_modified": [
+        "addons/skin.aurion/addon.xml"
+      ]
+    },
+    {
+      "version": "omega.37",
+      "changes": "Attempted to fix skinshortcuts menu build error",
+      "details": [
+        "User reported 'Unable to build menu' error",
+        "Identified AurionHeaderBar was inside group 2000",
+        "Moved AurionHeaderBar OUTSIDE group 2000 to avoid skinshortcuts conflict"
+      ],
+      "outcome": "FAILED - User reported 'That just stuffed the formatting of the toolbar. And still get the error.'",
+      "files_modified": [
+        "addons/skin.aurion/xml/Home.xml"
+      ]
+    },
+    {
+      "version": "omega.38 (CURRENT)",
+      "changes": "Complete revert of all custom additions",
+      "details": [
+        "REMOVED AurionHeaderBar include from Home.xml",
+        "REMOVED both AurionSpotlight includes from Home.xml",
+        "Home.xml restored to clean state with only group 2000 and skinshortcuts templates",
+        "Goal: Determine if 'Unable to build menu' error is caused by our changes or pre-existing"
+      ],
+      "outcome": "FAILED - 'Unable to build menu' error persists even in clean state",
+      "files_modified": [
+        "addons/skin.aurion/xml/Home.xml"
+      ]
+    },
+    {
+      "version": "Added script.skinshortcuts to repository",
+      "changes": "Include skinshortcuts as installable addon",
+      "details": [
+        "Downloaded script.skinshortcuts 2.0.3 from GitHub",
+        "Added to addons/ directory",
+        "Built and pushed to repository",
+        "User manually installed from zip file"
+      ],
+      "outcome": "PARTIAL - Skinshortcuts installs but menu still won't build",
+      "files_added": [
+        "addons/script.skinshortcuts/"
+      ]
+    }
+  ],
+  
+  "current_problem": {
+    "error_message": "Unable to build menu",
+    "error_source": "script.skinshortcuts addon",
+    "when_occurs": "When attempting to load Aurion skin in Kodi",
+    "symptoms": [
+      "Error appears on skin load",
+      "Persists even after complete revert to base skin (omega.38)",
+      "Persists even after clean uninstall/reinstall",
+      "Persists even after Kodi restart"
+    ],
+    "user_environment": {
+      "kodi_version": "Omega (21.x)",
+      "os": "Unknown (likely Windows based on file paths)",
+      "installation_method": "Custom repository (GitHub Pages)"
+    }
+  },
+  
+  "dependencies_status": {
+    "script.skinshortcuts": {
+      "required_version": "1.1.6",
+      "installed_version": "2.0.3",
+      "status": "INSTALLED",
+      "source": "Aurion Repository (manually installed from zip)",
+      "dependencies": {
+        "script.module.simpleeval": {
+          "required": "0.9.10",
+          "installed": "0.9.10",
+          "status": "SATISFIED"
+        },
+        "script.module.unidecode": {
+          "required": "1.1.1+matrix.2",
+          "installed": "1.3.6",
+          "status": "SATISFIED (newer version)"
+        }
+      }
+    },
+    "plugin.program.autocompletion": {
+      "required_version": "2.0.4",
+      "status": "UNKNOWN - not verified"
+    }
+  },
+  
+  "files_currently_removed": [
+    {
+      "feature": "AurionHeaderBar",
+      "description": "Custom header bar with logo and action buttons",
+      "defined_in": "addons/skin.aurion/xml/Includes.xml",
+      "was_included_in": "addons/skin.aurion/xml/Home.xml (line ~57-59)",
+      "status": "REMOVED in omega.38",
+      "reason": "Attempting to isolate skinshortcuts menu build error"
+    },
+    {
+      "feature": "AurionSpotlight (Movies)",
+      "description": "Horizontal scrolling panel for trending movies",
+      "defined_in": "addons/skin.aurion/xml/Includes_Home.xml",
+      "was_included_in": "addons/skin.aurion/xml/Home.xml (line ~60-63)",
+      "content_path": "plugin://plugin.video.aurion/?action=trending&type=movie",
+      "status": "REMOVED in omega.38",
+      "reason": "Attempting to isolate skinshortcuts menu build error"
+    },
+    {
+      "feature": "AurionSpotlight (TV Series)",
+      "description": "Horizontal scrolling panel for trending TV shows",
+      "defined_in": "addons/skin.aurion/xml/Includes_Home.xml",
+      "was_included_in": "addons/skin.aurion/xml/Home.xml (line ~64-68)",
+      "content_path": "plugin://plugin.video.aurion/?action=trending&type=tv",
+      "panel_id": "30001",
+      "status": "REMOVED in omega.38",
+      "reason": "Attempting to isolate skinshortcuts menu build error"
+    }
+  ],
+  
+  "home_xml_structure": {
+    "current_state": "Clean/reverted (omega.38)",
+    "key_elements": [
+      {
+        "line": 4,
+        "code": "<onload>RunScript(script.skinshortcuts,type=buildxml&mainmenuID=9000&group=mainmenu)</onload>",
+        "description": "Triggers skinshortcuts menu build on home load - THIS IS WHERE IT FAILS"
+      },
+      {
+        "line": 57,
+        "element": "control type='group'",
+        "description": "Parent group with infodialog fade animation"
+      },
+      {
+        "line": 59,
+        "element": "control type='group' id='2000'",
+        "description": "Main widget container managed by skinshortcuts",
+        "contains": [
+          "NotHideMainMenuWithWidgets conditional include",
+          "HideMainMenuWithWidgets conditional include",
+          "MinimizeMainMenu conditional include",
+          "skinshortcuts-template-PersonalWidgetList",
+          "skinshortcuts-template-PersonalWidgetPanel",
+          "skinshortcuts-template-PersonalWidgetVariable",
+          "Multiple widget groups (5000, 6000, 7000, etc.) for Movies, TV Shows, Music, etc."
+        ]
+      }
+    ],
+    "skinshortcuts_templates": [
+      "skinshortcuts-template-PersonalWidgetList",
+      "skinshortcuts-template-PersonalWidgetPanel",
+      "skinshortcuts-template-PersonalWidgetVariable"
+    ],
+    "notes": [
+      "Group 2000 is entirely managed by skinshortcuts",
+      "Any modifications to Home.xml structure broke skinshortcuts menu builder",
+      "Adding includes INSIDE group 2000 made them invisible",
+      "Adding includes OUTSIDE group 2000 broke toolbar formatting AND menu build still failed",
+      "Even with ALL custom additions removed, menu build still fails"
+    ]
+  },
+  
+  "shortcuts_data_files": {
+    "location": "addons/skin.aurion/shortcuts/",
+    "files": [
+      "addons.DATA.xml",
+      "home.DATA.xml",
+      "livetv.DATA.xml",
+      "mainmenu.DATA.xml",
+      "movies.DATA.xml",
+      "music.DATA.xml",
+      "musicvideos.DATA.xml",
+      "overrides.xml",
+      "powermenu.DATA.xml",
+      "radio.DATA.xml",
+      "template.xml",
+      "tvshows.DATA.xml",
+      "video.DATA.xml"
+    ],
+    "validation_status": "NOT VALIDATED - attempted xmllint but not installed in WSL",
+    "hypothesis": "These files may contain XML syntax errors causing skinshortcuts to fail"
+  },
+  
+  "troubleshooting_attempts": [
+    {
+      "action": "Removed visibility conditions from Spotlights",
+      "result": "No change"
+    },
+    {
+      "action": "Changed Spotlight positioning",
+      "result": "No change"
+    },
+    {
+      "action": "Moved custom includes outside group 2000",
+      "result": "Broke toolbar formatting, menu build still failed"
+    },
+    {
+      "action": "Complete revert to base skin (omega.38)",
+      "result": "Menu build still fails"
+    },
+    {
+      "action": "Bumped repository version to force cache refresh",
+      "result": "No change"
+    },
+    {
+      "action": "Updated xbmc.gui dependency to 5.17.0",
+      "result": "Fixed GUI dependency error, but menu build still fails"
+    },
+    {
+      "action": "Added script.skinshortcuts 2.0.3 to repository",
+      "result": "Skinshortcuts now installable, but menu build still fails"
+    },
+    {
+      "action": "Clean uninstall/reinstall of all Aurion addons",
+      "result": "Menu build still fails"
+    },
+    {
+      "action": "Manual installation of script.skinshortcuts from zip",
+      "result": "Dependencies satisfied, but menu build still fails"
+    },
+    {
+      "action": "Kodi restart",
+      "result": "Menu build still fails"
+    }
+  ],
+  
+  "theories": {
+    "theory_1": {
+      "hypothesis": "Corrupted shortcuts DATA files",
+      "evidence": [
+        "Error persists even in clean skin state",
+        "Skinshortcuts parses these files to build menu",
+        "Files not validated for XML syntax"
+      ],
+      "next_steps": [
+        "Install xmllint in WSL",
+        "Validate all shortcuts/*.DATA.xml files",
+        "Compare with original Estuary MOD V2 shortcuts files",
+        "Fix or restore any corrupted files"
+      ]
+    },
+    "theory_2": {
+      "hypothesis": "Skinshortcuts version incompatibility",
+      "evidence": [
+        "Skin requires 1.1.6, installed is 2.0.3",
+        "Major version jump may have breaking changes"
+      ],
+      "next_steps": [
+        "Download script.skinshortcuts 1.1.6 specifically",
+        "Test with exact version match"
+      ]
+    },
+    "theory_3": {
+      "hypothesis": "Missing or incompatible template definitions",
+      "evidence": [
+        "Home.xml references skinshortcuts templates",
+        "Templates may not exist or may be incompatible with skinshortcuts 2.0.3"
+      ],
+      "next_steps": [
+        "Check if template files exist in skin",
+        "Verify template structure matches skinshortcuts expectations",
+        "Check Kodi debug log for specific skinshortcuts errors"
+      ]
+    },
+    "theory_4": {
+      "hypothesis": "Base skin issue inherited from Estuary MOD V2",
+      "evidence": [
+        "Error exists even in unmodified state",
+        "May be a known issue with the base skin"
+      ],
+      "next_steps": [
+        "Check Estuary MOD V2 GitHub issues for similar reports",
+        "Test original Estuary MOD V2 skin to confirm it works",
+        "Compare our skin with working Estuary MOD V2 version"
+      ]
+    }
+  },
+  
+  "recommended_next_actions": [
+    {
+      "priority": 1,
+      "action": "Check Kodi debug log",
+      "steps": [
+        "Enable Kodi debug logging: Settings → System → Logging → Enable debug logging",
+        "Attempt to load Aurion skin",
+        "Settings → System → Logging → View log file",
+        "Search for 'skinshortcuts' or 'build' errors",
+        "Look for specific file paths or error messages"
+      ],
+      "expected_outcome": "Detailed error message indicating what skinshortcuts is failing on"
+    },
+    {
+      "priority": 2,
+      "action": "Validate shortcuts DATA files",
+      "steps": [
+        "Install xmllint: sudo apt install libxml2-utils",
+        "Run: for f in addons/skin.aurion/shortcuts/*.xml; do xmllint --noout \"$f\" || echo \"ERROR in $f\"; done",
+        "Fix any XML syntax errors found"
+      ],
+      "expected_outcome": "Identify corrupted XML files"
+    },
+    {
+      "priority": 3,
+      "action": "Try skinshortcuts 1.1.6 instead of 2.0.3",
+      "steps": [
+        "Find and download script.skinshortcuts 1.1.6",
+        "Replace 2.0.3 in repository with 1.1.6",
+        "Rebuild and reinstall"
+      ],
+      "expected_outcome": "Version match may resolve compatibility issues"
+    },
+    {
+      "priority": 4,
+      "action": "Compare with working Estuary MOD V2",
+      "steps": [
+        "Download original Estuary MOD V2 Omega branch",
+        "Install and verify it works",
+        "Compare shortcuts files, Home.xml structure, and addon.xml dependencies"
+      ],
+      "expected_outcome": "Identify what's different/broken in our fork"
+    }
+  ],
+  
+  "files_to_examine": {
+    "high_priority": [
+      "addons/skin.aurion/shortcuts/*.DATA.xml (all 13 files)",
+      "addons/skin.aurion/xml/Home.xml (specifically line 4 onload script)",
+      "Kodi debug log (need to enable and capture)"
+    ],
+    "medium_priority": [
+      "addons/skin.aurion/xml/Includes_Home.xml (template definitions)",
+      "addons/skin.aurion/xml/script-skinshortcuts.xml (skinshortcuts config)",
+      "addons/script.skinshortcuts/addon.xml (verify version and dependencies)"
+    ]
+  },
+  
+  "repository_structure": {
+    "github_pages_url": "https://outrageousbean.github.io/Aurion/",
+    "repository_zip": "https://outrageousbean.github.io/Aurion/zips/repository.aurion/repository.aurion-1.0.1.zip",
+    "addons_xml": "https://outrageousbean.github.io/Aurion/addons.xml",
+    "available_addons": [
+      "plugin.video.aurion (1.0.3)",
+      "repository.aurion (1.0.1)",
+      "script.skinshortcuts (2.0.3)",
+      "skin.aurion (21.2.1+omega.38)"
+    ]
+  },
+  
+  "user_workflow": {
+    "installation_steps": [
+      "Add-ons → Install from zip file",
+      "Enter URL: https://outrageousbean.github.io/Aurion/zips/repository.aurion/repository.aurion-1.0.1.zip",
+      "Install repository",
+      "Add-ons → Install from repository → Aurion Repository → Look and feel → Skin → Aurion",
+      "Install skin (should auto-install dependencies but doesn't)",
+      "Manually install script.skinshortcuts from zip",
+      "Settings → Interface → Skin → Aurion",
+      "ERROR: 'Unable to build menu'"
+    ],
+    "current_state": [
+      "Skin Aurion omega.38 installed",
+      "script.skinshortcuts 2.0.3 installed",
+      "All dependencies satisfied",
+      "Cannot activate skin due to menu build error"
+    ]
+  },
+  
+  "git_commit_history_relevant": [
+    "omega.31-33: Logo positioning fixes",
+    "omega.34: Spotlight feature added",
+    "omega.35-36: Spotlight visibility debugging",
+    "omega.37: Moved header bar outside group 2000",
+    "omega.38: Reverted all custom additions (CURRENT)",
+    "Added script.skinshortcuts 2.0.3 to repository"
+  ]
+}
