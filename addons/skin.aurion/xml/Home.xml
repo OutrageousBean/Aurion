@@ -1669,8 +1669,6 @@
 					<onright condition="String.IsEqual(Container(9000).ListItem.Property(widget),VideoWidget)">11000</onright>
 					<onright condition="String.IsEqual(Container(9000).ListItem.Property(widget),FavoritesWidget)">14000</onright>
 					<onright condition="String.IsEqual(Container(9000).ListItem.Property(widget),WeatherWidget)">15000</onright>
-					<onright condition="String.IsEqual(Container(9000).ListItem.Property(widget),PersonalWidgetList)">22000</onright>
-					<onright condition="String.IsEqual(Container(9000).ListItem.Property(widget),PersonalWidgetPanel)">23000</onright>
 					<onup>700</onup>
 					<ondown>700</ondown>
 					<scrolltime tween="cubic" easing="out">500</scrolltime>
