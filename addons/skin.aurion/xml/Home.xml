@@ -54,18 +54,6 @@
 			<include>OpenClose_Right</include>
 			<visible>[$EXP[ChristmasTheme] | $EXP[HalloweenTheme] | $EXP[EasterTheme] | $EXP[ValentineTheme] | $EXP[PreEasterTheme]] + !$EXP[infodialog_active]</visible>
 		</control>
-		<!-- Aurion Header Bar - placed outside group 2000 to avoid skinshortcuts conflicts -->
-		<include>AurionHeaderBar</include>
-		<!-- Aurion Spotlight Rows - placed outside group 2000 for always-on visibility -->
-		<include content="AurionSpotlight">
-			<param name="label" value="Spotlight Movies"/>
-			<param name="path" value="plugin://plugin.video.aurion/?action=trending&amp;type=movie"/>
-		</include>
-		<include content="AurionSpotlight">
-			<param name="label" value="Trending Series"/>
-			<param name="path" value="plugin://plugin.video.aurion/?action=trending&amp;type=tv"/>
-			<param name="panel_id" value="30001"/>
-		</include>
 		<control type="group">
 			<animation effect="fade" start="100" end="0" time="200" tween="sine" condition="$EXP[infodialog_active]">Conditional</animation>
 			<control type="group" id="2000">
