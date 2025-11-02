@@ -7,8 +7,9 @@
 		<param name="path" default="plugin://plugin.video.aurion/?action=trending&amp;type=movie"/>
 		<param name="panel_id" default="30000"/>
 		<control type="group">
-			<visible>System.HasAddon(plugin.video.aurion)</visible>
-			<top>140</top>
+			<!-- Temporarily removed visibility check for debugging -->
+			<!-- <visible>System.HasAddon(plugin.video.aurion)</visible> -->
+			<top>600</top>
 			<left>60</left>
 			<right>60</right>
 			<height>420</height>
