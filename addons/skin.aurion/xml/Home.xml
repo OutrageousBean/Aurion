@@ -70,11 +70,6 @@
 					<effect type="slide" end="0,20" time="180" tween="sine" delay="80" />
 				</animation>
 				<include>OpenClose_Right</include>
-				<!-- Commented out missing template includes - widgets are handled by script.skinshortcuts directly
-				<include>skinshortcuts-template-PersonalWidgetList</include>
-				<include>skinshortcuts-template-PersonalWidgetPanel</include>
-				<include>skinshortcuts-template-PersonalWidgetVariable</include>
-				-->
 				<control type="group" id="5000">
 					<animation effect="slide" end="502,0" time="300" tween="sine" easing="inout" condition="[Control.HasFocus(9000) | ControlGroup(700).HasFocus] + Skin.HasSetting(HideMainMenuWithWidgets) + !Skin.HasSetting(MinimizeMainMenu)">Conditional</animation>
 					<animation effect="slide" end="135,0" time="300" tween="sine" easing="inout" condition="[Control.HasFocus(9000) | ControlGroup(700).HasFocus] + Skin.HasSetting(HideMainMenuWithWidgets) + Skin.HasSetting(MinimizeMainMenu)">Conditional</animation>
