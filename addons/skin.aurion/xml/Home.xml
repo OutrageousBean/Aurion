@@ -54,6 +54,8 @@
 			<include>OpenClose_Right</include>
 			<visible>[$EXP[ChristmasTheme] | $EXP[HalloweenTheme] | $EXP[EasterTheme] | $EXP[ValentineTheme] | $EXP[PreEasterTheme]] + !$EXP[infodialog_active]</visible>
 		</control>
+		<!-- Aurion Header Bar - placed outside group 2000 to avoid skinshortcuts conflicts -->
+		<include>AurionHeaderBar</include>
 		<!-- Aurion Spotlight Rows - placed outside group 2000 for always-on visibility -->
 		<include content="AurionSpotlight">
 			<param name="label" value="Spotlight Movies"/>
@@ -83,7 +85,6 @@
 				<include>skinshortcuts-template-PersonalWidgetList</include>
 				<include>skinshortcuts-template-PersonalWidgetPanel</include>
 				<include>skinshortcuts-template-PersonalWidgetVariable</include>
-				<include>AurionHeaderBar</include>
 				<control type="group" id="5000">
 					<animation effect="slide" end="502,0" time="300" tween="sine" easing="inout" condition="[Control.HasFocus(9000) | ControlGroup(700).HasFocus] + Skin.HasSetting(HideMainMenuWithWidgets) + !Skin.HasSetting(MinimizeMainMenu)">Conditional</animation>
 					<animation effect="slide" end="135,0" time="300" tween="sine" easing="inout" condition="[Control.HasFocus(9000) | ControlGroup(700).HasFocus] + Skin.HasSetting(HideMainMenuWithWidgets) + Skin.HasSetting(MinimizeMainMenu)">Conditional</animation>
