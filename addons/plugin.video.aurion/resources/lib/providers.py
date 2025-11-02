@@ -1,3 +1,5 @@
+import importlib
+
 import xbmcaddon
 import xbmcgui
 
@@ -6,8 +8,14 @@ ADDON = xbmcaddon.Addon()
 
 def have_openscrapers():
     try:
-        __import__("openscrapers")
+        importlib.import_module("resources.lib.modules.openscrapers")
         return True
+    except ImportError:
+        try:
+            importlib.import_module("openscrapers")
+            return True
+        except ImportError:
+            return False
     except Exception:
         return False
 
