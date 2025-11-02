@@ -46,8 +46,9 @@
     <widget label="3" icon="icons/sidemenu/videos.png">VideoWidget</widget>
     <widget label="10134" icon="icons/sidemenu/favourites.png">FavoritesWidget</widget>
     <widget label="8" icon="icons/sidemenu/weather.png">WeatherWidget</widget>
-    <widget label="31366" icon="icons/PersonalList.png">PersonalWidgetList</widget>
-    <widget label="31405" icon="icons/PersonalPanel.png">PersonalWidgetPanel</widget>
+    <!-- PersonalWidget disabled - template.xml references includes that cause build failures -->
+    <!-- <widget label="31366" icon="icons/PersonalList.png">PersonalWidgetList</widget> -->
+    <!-- <widget label="31405" icon="icons/PersonalPanel.png">PersonalWidgetPanel</widget> -->
 
     <!-- Default Backgrounds -->
     <backgrounddefault labelID="disc">special://skin/extras/home-images/disc.jpg</backgrounddefault>
