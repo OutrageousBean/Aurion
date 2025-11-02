@@ -112,10 +112,10 @@
         <description lang="zh_TW">插件为皮肤提供了简单的管理和用户连接方式列表 (需要皮肤支持)</description>
     </extension>
 </addon>
-<addon id="skin.aurion" version="21.2.1+omega.38" name="Aurion" provider-name="Benji | chrisism | Kodi Team">
+<addon id="skin.aurion" version="21.2.2+omega.40" name="Aurion Beta 40" provider-name="OutrageousBean">
 	<requires>
 		<import addon="xbmc.gui" version="5.17.0" />
-		<import addon="script.skinshortcuts" version="1.1.6" />
+		<import addon="script.skinshortcuts" version="2.0.3" />
 		<import addon="plugin.program.autocompletion" version="2.0.4" />
 	</requires>
 	<extension point="xbmc.gui.skin" debugging="false">
