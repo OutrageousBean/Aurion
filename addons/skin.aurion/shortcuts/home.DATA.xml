@@ -2,16 +2,19 @@
 <shortcuts>
     <shortcut>
         <label>Aurion Movies</label>
+        <label2>Common Shortcut</label2>
         <icon>extras/icons/movies.png</icon>
         <action>ActivateWindow(Videos,plugin://plugin.video.aurion/?action=movies,return)</action>
     </shortcut>
     <shortcut>
         <label>Aurion TV</label>
+        <label2>Common Shortcut</label2>
         <icon>extras/icons/tv.png</icon>
         <action>ActivateWindow(Videos,plugin://plugin.video.aurion/?action=tvshows,return)</action>
     </shortcut>
     <shortcut>
         <label>Search</label>
+        <label2>Common Shortcut</label2>
         <icon>extras/icons/search.png</icon>
         <action>ActivateWindow(Videos,plugin://plugin.video.aurion/?action=search,return)</action>
     </shortcut>
