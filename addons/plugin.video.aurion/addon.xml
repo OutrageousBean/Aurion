@@ -1,4 +1,4 @@
-<addon id="plugin.video.aurion" name="Aurion" version="1.0.2" provider-name="OutrageousBean">
+<addon id="plugin.video.aurion" name="Aurion" version="1.0.3" provider-name="OutrageousBean">
   <requires>
     <import addon="xbmc.python" version="3.0.0"/>
     <import addon="script.module.resolveurl" version="0.0.0" optional="true"/>

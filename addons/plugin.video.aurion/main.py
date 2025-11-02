@@ -71,7 +71,9 @@ def show_results(query=None, media_type=None, action=None):
     xbmcplugin.setPluginCategory(HANDLE, f"Aurion {label.title()}")
     xbmcplugin.setContent(HANDLE, "videos")
     for index in range(1, 11):
+        thumb = "DefaultVideo.png"  # Kodi's built-in fallback
         list_item = xbmcgui.ListItem(f"{label} {index}")
+        list_item.setArt({"poster": thumb, "thumb": thumb, "icon": thumb})
         list_item.setInfo("video", {"title": f"{label} {index}"})
         list_item.setProperty("IsPlayable", "true")
         # When sources are ready, set URL to a resolver path
